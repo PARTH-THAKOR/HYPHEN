@@ -59,4 +59,5 @@ public class HyphenUser {
     public void setMessage(String message) {
         this.message = message;
     }
+
 }
