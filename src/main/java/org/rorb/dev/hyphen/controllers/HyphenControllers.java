@@ -32,4 +32,10 @@ public class HyphenControllers {
         return ResponseEntity.status(201).build();
     }
 
+    @DeleteMapping("/org.developers.roundrobin/hyphen.dev/all/rorb.dev.hyphen")
+    public ResponseEntity<HyphenUser> deleteAllChat() {
+        MYSQL.deleteAll();
+        return ResponseEntity.status(204).build();
+    }
+
 }
