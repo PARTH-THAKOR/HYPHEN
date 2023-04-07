@@ -12,4 +12,3 @@ import org.springframework.stereotype.Service;
 public interface DataBaseMethods extends CrudRepository<HyphenUser,Integer> {
 
 }
-
