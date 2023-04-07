@@ -20,14 +20,14 @@ public class HyphenControllers {
         this.MYSQL = MYSQL;
     }
 
-    @GetMapping("/org.developers.roundrobin/hyphen/{id}")
-    public ResponseEntity<Iterable<HyphenUser>> getChat(@PathVariable String id) {
+    @GetMapping("/org.developers.roundrobin/hyphen")
+    public ResponseEntity<Iterable<HyphenUser>> getChat() {
         Iterable<HyphenUser> message = MYSQL.findAll();
         return ResponseEntity.of(Optional.of(message));
     }
 
-    @PostMapping("//org.developers.roundrobin/hyphen/{id}")
-    public ResponseEntity<HyphenUser> studentPost(@RequestBody HyphenUser hyphenUser,@PathVariable String id) {
+    @PostMapping("/org.developers.roundrobin/hyphen")
+    public ResponseEntity<HyphenUser> postChat(@RequestBody HyphenUser hyphenUser) {
         MYSQL.save(hyphenUser);
         return ResponseEntity.status(201).build();
     }

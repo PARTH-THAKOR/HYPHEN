@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @EnableJpaRepositories
 @Service
-public interface DataBaseMethods extends CrudRepository<HyphenUser,String> {
+public interface DataBaseMethods extends CrudRepository<HyphenUser,Integer> {
 
 }
 
