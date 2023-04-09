@@ -2,10 +2,7 @@
 
 package org.rorb.dev.hyphen.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class HyphenUser {
@@ -13,7 +10,9 @@ public class HyphenUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String userId;
+    private String chatId;
+    private String sendId;
+    private String deleteId;
     private String time;
     private String message;
 
@@ -21,9 +20,9 @@ public class HyphenUser {
         super();
     }
 
-    public HyphenUser(int id, String userId, String time, String message) {
+    public HyphenUser(int id, String chatId, String time, String message) {
         this.id = id;
-        this.userId = userId;
+        this.chatId = chatId;
         this.time = time;
         this.message = message;
     }
@@ -36,12 +35,28 @@ public class HyphenUser {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getChatId() {
+        return chatId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public String getSendId() {
+        return sendId;
+    }
+
+    public void setSendId(String sendId) {
+        this.sendId = sendId;
+    }
+
+    public String getDeleteId() {
+        return deleteId;
+    }
+
+    public void setDeleteId(String deleteId) {
+        this.deleteId = deleteId;
     }
 
     public String getTime() {
@@ -59,5 +74,4 @@ public class HyphenUser {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }
