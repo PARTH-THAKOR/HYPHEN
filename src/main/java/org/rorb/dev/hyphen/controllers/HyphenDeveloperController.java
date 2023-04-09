@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-public class HyphenControllers {
+public class HyphenDeveloperController {
 
     private final DataBaseMethods MYSQL;
 
     @Autowired
-    public HyphenControllers(DataBaseMethods MYSQL) {
+    public HyphenDeveloperController(DataBaseMethods MYSQL) {
         this.MYSQL = MYSQL;
     }
 
