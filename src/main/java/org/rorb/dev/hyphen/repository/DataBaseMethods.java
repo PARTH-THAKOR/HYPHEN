@@ -12,17 +12,22 @@ import org.springframework.stereotype.Service;
 @Service
 public interface DataBaseMethods extends CrudRepository<HyphenUser, Integer> {
 
-    Iterable<HyphenUser> findByChatIdOrderByTimeAsc(String chatId);
+    Iterable<HyphenUser> findByProjectNameAndChatIdOrderByTimeAsc(String projectName,String chatId);
 
-    Iterable<HyphenUser> findByChatIdOrderByTimeDesc(String chatId);
+    Iterable<HyphenUser> findByProjectNameAndChatIdOrderByTimeDesc(String projectName,String chatId);
 
-    @Transactional
-    void deleteByDeleteId(String deleteId);
-
-    @Transactional
-    void deleteBySendId(String sendId);
+    Iterable<HyphenUser> findByProjectNameOrderByTimeAsc(String projectName);
 
     @Transactional
-    void deleteByChatId(String chatId);
+    void deleteByProjectName(String deleteId);
+
+    @Transactional
+    void deleteByProjectNameAndDeleteId(String projectName,String deleteId);
+
+    @Transactional
+    void deleteByProjectNameAndSendId(String projectName,String sendId);
+
+    @Transactional
+    void deleteByProjectNameAndChatId(String projectName,String chatId);
 
 }

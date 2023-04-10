@@ -20,51 +20,15 @@ public class HyphenDeveloperController {
         this.MYSQL = MYSQL;
     }
 
-    @GetMapping("/org.developers.roundrobin/hyphen/dev")
-    public ResponseEntity<Iterable<HyphenUser>> getChat() {
-        Iterable<HyphenUser> message = MYSQL.findAll();
+    @GetMapping("/org.roundrobin/hyphen/dev/{projectName}")
+    public ResponseEntity<Iterable<HyphenUser>> getAllUserChatByProjectIdAscending(@PathVariable("projectName") String projectName) {
+        Iterable<HyphenUser> message = MYSQL.findByProjectNameOrderByTimeAsc(projectName);
         return ResponseEntity.of(Optional.of(message));
     }
 
-    @GetMapping("/org.developers.roundrobin/hyphen/dev/{chatId}")
-    public ResponseEntity<Iterable<HyphenUser>> getAllUserByChatIdAscending(@PathVariable("chatId") String id) {
-        Iterable<HyphenUser> message = MYSQL.findByChatIdOrderByTimeAsc(id);
-        return ResponseEntity.of(Optional.of(message));
-    }
-
-    @GetMapping("/org.developers.roundrobin/hyphen/dev/desc/{chatId}")
-    public ResponseEntity<Iterable<HyphenUser>> getAllChatByChatIdDescending(@PathVariable("chatId") String id) {
-        Iterable<HyphenUser> message = MYSQL.findByChatIdOrderByTimeDesc(id);
-        return ResponseEntity.of(Optional.of(message));
-    }
-
-    @PostMapping("/org.developers.roundrobin/hyphen/dev")
-    public ResponseEntity<HyphenUser> postChat(@RequestBody HyphenUser hyphenUser) {
-        MYSQL.save(hyphenUser);
-        return ResponseEntity.status(201).build();
-    }
-
-    @DeleteMapping("/org.developers.roundrobin/hyphen/dev/single/delete/{deleteId}")
-    public ResponseEntity<HyphenUser> deleteAllChatByDeleteId(@PathVariable("deleteId") String deleteId) {
-        MYSQL.deleteByDeleteId(deleteId);
-        return ResponseEntity.status(204).build();
-    }
-
-    @DeleteMapping("/org.developers.roundrobin/hyphen/dev/multi/send/{sendId}")
-    public ResponseEntity<HyphenUser> deleteAllChatBySendId(@PathVariable("sendId") String sendId) {
-        MYSQL.deleteBySendId(sendId);
-        return ResponseEntity.status(204).build();
-    }
-
-    @DeleteMapping("/org.developers.roundrobin/hyphen/dev/multi/chat/{chatId}")
-    public ResponseEntity<HyphenUser> deleteAllChatByChatId(@PathVariable("chatId") String chatId) {
-        MYSQL.deleteByChatId(chatId);
-        return ResponseEntity.status(204).build();
-    }
-
-    @DeleteMapping("/org.developers.roundrobin/hyphen.dev/dev/all/rorb.dev.hyphen")
-    public ResponseEntity<HyphenUser> deleteAllChat() {
-        MYSQL.deleteAll();
+    @DeleteMapping("/org.roundrobin/hyphen/dev/{projectName}")
+    public ResponseEntity<HyphenUser> deleteAllChatByProjectName(@PathVariable("projectName") String projectName) {
+        MYSQL.deleteByProjectName(projectName);
         return ResponseEntity.status(204).build();
     }
 

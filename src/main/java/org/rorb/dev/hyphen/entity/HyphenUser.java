@@ -10,6 +10,7 @@ public class HyphenUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private String projectName;
     private String chatId;
     private String sendId;
     private String deleteId;
@@ -20,9 +21,12 @@ public class HyphenUser {
         super();
     }
 
-    public HyphenUser(int id, String chatId, String time, String message) {
+    public HyphenUser(int id, String projectName, String chatId, String sendId, String deleteId, String time, String message) {
         this.id = id;
+        this.projectName = projectName;
         this.chatId = chatId;
+        this.sendId = sendId;
+        this.deleteId = deleteId;
         this.time = time;
         this.message = message;
     }
@@ -33,6 +37,14 @@ public class HyphenUser {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public String getChatId() {
