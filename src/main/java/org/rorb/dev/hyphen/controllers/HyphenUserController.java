@@ -13,7 +13,6 @@ import java.util.Optional;
 @RestController
 public class HyphenUserController {
 
-
     private final DataBaseMethods MYSQL;
 
     @Autowired

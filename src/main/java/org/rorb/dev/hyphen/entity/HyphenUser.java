@@ -17,20 +17,6 @@ public class HyphenUser {
     private String time;
     private String message;
 
-    public HyphenUser() {
-        super();
-    }
-
-    public HyphenUser(int id, String projectName, String chatId, String sendId, String deleteId, String time, String message) {
-        this.id = id;
-        this.projectName = projectName;
-        this.chatId = chatId;
-        this.sendId = sendId;
-        this.deleteId = deleteId;
-        this.time = time;
-        this.message = message;
-    }
-
     public int getId() {
         return id;
     }
@@ -86,4 +72,5 @@ public class HyphenUser {
     public void setMessage(String message) {
         this.message = message;
     }
+
 }
