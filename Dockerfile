@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim-buster
 WORKDIR /app
 
 # Copy the Spring Boot application JAR file into the container
-COPY target/hyphen-0.0.1-SNAPSHOT.jar .
+COPY ./target/hyphen-0.0.1-SNAPSHOT.jar .
 
 # Set the command to run when the container starts
 CMD ["java", "-jar", "hyphen-0.0.1-SNAPSHOT.jar"]
