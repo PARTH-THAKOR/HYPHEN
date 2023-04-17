@@ -9,7 +9,7 @@ RUN mvn clean
 #
 # Package stage
 #
-FROM openjdk:11-jdk-slim
+FROM openjdk:11-jre-slim
 COPY --from=build /target/hyphen-0.0.1-SNAPSHOT.jar demo.jar
 # ENV PORT=8080
 EXPOSE 8080
