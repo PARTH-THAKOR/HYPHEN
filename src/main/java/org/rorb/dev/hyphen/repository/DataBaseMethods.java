@@ -2,7 +2,8 @@
 
 package org.rorb.dev.hyphen.repository;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
+
 import org.rorb.dev.hyphen.entity.HyphenUser;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.CrudRepository;
