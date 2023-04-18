@@ -15,7 +15,7 @@ public class HyphenUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     private String projectName;
     private String chatId;
     private String sendId;
