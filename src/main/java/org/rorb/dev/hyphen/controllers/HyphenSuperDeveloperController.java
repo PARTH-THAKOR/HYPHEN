@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/org.roundrobin/hyphen")
 public class HyphenSuperDeveloperController {
 
     private final DataBaseMethods MYSQL;
@@ -21,7 +22,7 @@ public class HyphenSuperDeveloperController {
         this.MYSQL = MYSQL;
     }
 
-    @GetMapping("/org.roundrobin/hyphen/super/dev/password/38")
+    @GetMapping("/super/dev/password/38")
     public ResponseEntity<Iterable<HyphenUser>> getAllData(@RequestHeader(value = "UserName") String userName, @RequestHeader(value = "Password") String password) {
         if (Password.passWordSuperDev(userName, password)) {
             Iterable<HyphenUser> message = MYSQL.findAll();
@@ -31,7 +32,7 @@ public class HyphenSuperDeveloperController {
         }
     }
 
-    @PostMapping("/org.roundrobin/hyphen/super/dev")
+    @PostMapping("/super/dev")
     public ResponseEntity<HyphenUser> postChat(@RequestBody HyphenUser hyphenUser, @RequestHeader(value = "UserName") String userName, @RequestHeader(value = "Password") String password) {
         if (Password.passWordSuperDev(userName, password)) {
             MYSQL.save(hyphenUser);
@@ -41,7 +42,7 @@ public class HyphenSuperDeveloperController {
         }
     }
 
-    @DeleteMapping("/org.roundrobin/hyphen/super/dev/all/rorb.dev.hyphen/password/38")
+    @DeleteMapping("/super/dev/all/rorb.dev.hyphen/password/38")
     public ResponseEntity<HyphenUser> deleteAllData(@RequestHeader(value = "UserName") String userName, @RequestHeader(value = "Password") String password) {
         if (Password.passWordSuperDev(userName, password)) {
             MYSQL.deleteAll();

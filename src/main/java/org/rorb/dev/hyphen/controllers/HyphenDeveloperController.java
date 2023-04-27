@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/org.roundrobin/hyphen")
 public class HyphenDeveloperController {
 
     private final DataBaseMethods MYSQL;
@@ -22,7 +23,7 @@ public class HyphenDeveloperController {
         this.MYSQL = MYSQL;
     }
 
-    @GetMapping("/org.roundrobin/hyphen/dev/{projectName}")
+    @GetMapping("/dev/{projectName}")
     public ResponseEntity<Iterable<HyphenUser>> getAllUserChatByProjectIdAscending(@PathVariable("projectName") String projectName, @RequestHeader(value = "UserName") String userName, @RequestHeader(value = "Password") String password) {
         if (Objects.equals(userName, projectName)) {
             if (Password.passWord(password)) {
@@ -36,7 +37,7 @@ public class HyphenDeveloperController {
         }
     }
 
-    @PostMapping("/org.roundrobin/hyphen/dev/{projectName}")
+    @PostMapping("/dev/{projectName}")
     public ResponseEntity<HyphenUser> postChat(@RequestBody HyphenUser hyphenUser, @PathVariable("projectName") String projectName, @RequestHeader(value = "UserName") String userName, @RequestHeader(value = "Password") String password) {
         if (Objects.equals(userName, projectName)) {
             if (Password.passWord(password)) {
@@ -50,7 +51,7 @@ public class HyphenDeveloperController {
         }
     }
 
-    @DeleteMapping("/org.roundrobin/hyphen/dev/{projectName}")
+    @DeleteMapping("/dev/{projectName}")
     public ResponseEntity<HyphenUser> deleteAllChatByProjectName(@PathVariable("projectName") String projectName, @RequestHeader(value = "UserName") String userName, @RequestHeader(value = "Password") String password) {
         if (Objects.equals(userName, projectName)) {
             if (Password.passWord(password)) {
