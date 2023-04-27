@@ -4,6 +4,7 @@ package org.rorb.dev.hyphen.controllers;
 
 import org.rorb.dev.hyphen.entity.HyphenUser;
 import org.rorb.dev.hyphen.repository.DataBaseMethods;
+import org.rorb.dev.hyphen.security.Password;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
